@@ -1,6 +1,6 @@
 FROM rancher/server:v1.6.10
 
-RUN systemctl stop mysql.service && rm -rf /var/lib/mysql
+RUN service mysql stop && rm -rf /var/lib/mysql
 
 COPY ./initdb /var/lib/mysql
 
