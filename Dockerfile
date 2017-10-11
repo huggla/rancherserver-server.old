@@ -1,3 +1,7 @@
 FROM rancher/server:v1.6.10
 
-RUN apt-get update && apt-get purge -y mysql-server && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+RUN rm -rf /var/lib/mysql
+
+COPY ./initdb /var/lib/mysql
+
+RUN chown -R 102:105 /var/lib/mysql
